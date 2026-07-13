@@ -10,45 +10,58 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    title: "Aether Commerce",
+    title: "Itinera.ai",
+    year: "2026",
+    description:
+      "Automated travel plan for users that can be downloaded as pdf ",
+    stack: ["Next.js", "TypeScript", "geminiAPI", "supabase", "prisma"],
+    image: "/itinera.png",
+    liveUrl: "https://itinera-ai-gray.vercel.app/",
+    repoUrl: "https://github.com/dionisiusragil13/travel-plan",
+  },
+  {
+    title: "TickTracker",
+    year: "2026",
+    description:
+      "Full-stack IT support ticketing system with role-based issue tracking",
+    stack: ["PHP", "laravel", "vue.js", "MySQL"],
+    image: "/ticktrack.png",
+    liveUrl: "",
+    repoUrl: "https://github.com/dionisiusragil13/ticketing-web-app",
+  },
+  {
+    title: "App Chat",
     year: "2025",
     description:
-      "Storefront headless dengan checkout instan dan sinkronisasi inventori real-time.",
-    stack: ["Next.js", "TypeScript", "Stripe"],
-    image:
-      "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&q=80",
-    liveUrl: "#",
-    repoUrl: "#",
+      "Real time chat app with key fundamental of website development ",
+    stack: [
+      "javascript",
+      "Node.js",
+      "react",
+      "MongoDB",
+      "REST API",
+      "Express.js",
+    ],
+    image: "/ChatApp.png",
+    liveUrl: "",
+    repoUrl: "https://github.com/dionisiusragil13/chat-app",
   },
   {
-    title: "Orbit Analytics",
-    year: "2024",
-    description:
-      "Dashboard visualisasi data untuk tim growth, dengan filter dan ekspor laporan.",
-    stack: ["React", "D3.js", "Node.js"],
-    image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-    liveUrl: "#",
-  },
-  {
-    title: "Nexus Dashboard",
-    year: "2024",
-    description:
-      "Admin panel modular dengan sistem role-based access dan theme kustom.",
-    stack: ["Vue", "Pinia", "Tailwind"],
-    image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
-    liveUrl: "#",
-    repoUrl: "#",
-  },
-  {
-    title: "Pulse Monitor",
+    title: "Space War",
     year: "2023",
-    description:
-      "Sistem monitoring infrastruktur dengan notifikasi real-time via WebSocket.",
-    stack: ["Go", "React", "Docker"],
-    image:
-      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",
-    liveUrl: "#",
+    description: "2D game with Unity",
+    stack: ["Unity", "C#"],
+    image: "/SpaceWar.png",
+    liveUrl: "",
+    repoUrl: "https://github.com/dionisiusragil13/Space-war",
+  },
+  {
+    title: "LeafSense",
+    year: "2025",
+    description: "Website to classifify a hearbal leaf with customized model",
+    stack: ["Python", "Flask", "React", "tensorflow"],
+    image: "leafsense.png",
+    liveUrl: "",
+    repoUrl: "https://github.com/dionisiusragil13/herbal-leaf-classifier",
   },
 ];

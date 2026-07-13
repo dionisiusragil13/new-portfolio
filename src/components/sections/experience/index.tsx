@@ -1,10 +1,60 @@
 "use client";
 
+import { useRef } from "react";
 import { experience } from "./data";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin([useGSAP, ScrollTrigger]);
 
 export default function Experience() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const itemsRef = useRef<(HTMLDivElement | null)[]>([]);
+
+  useGSAP(
+    () => {
+      if (!itemsRef.current.length) return;
+
+      const trigger = ScrollTrigger.create({
+        trigger: sectionRef.current,
+        start: "top 80%",
+      });
+
+      itemsRef.current.forEach((el, i) => {
+        if (!el) return;
+
+        gsap.fromTo(
+          el,
+          { opacity: 0, y: 24 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: el,
+              start: "top 85%",
+              toggleActions: "play none none none",
+            },
+            delay: i * 0.15,
+          }
+        );
+      });
+
+      return () => {
+        trigger.kill();
+      };
+    },
+    { scope: sectionRef }
+  );
+
+  const setItemRef = (i: number) => (el: HTMLDivElement | null) => {
+    itemsRef.current[i] = el;
+  };
+
   return (
-    <section className="relative min-h-screen">
+    <section ref={sectionRef} id="experience-section" className="relative min-h-screen">
       <div className="relative z-10 flex flex-col px-4 py-24 max-w-4xl mx-auto">
         <div className="mb-20">
           <h1 className="uppercase font-black text-5xl text-center sm:text-6xl text-[#fffff0]">
@@ -15,12 +65,12 @@ export default function Experience() {
         <div className="relative">
           <div className="absolute left-0.75 top-2 bottom-2 w-px bg-white/6" />
 
-          <div className="space-y-20">
+          <div className="experience-card space-y-20">
             {experience.map((item, index) => (
               <div
                 key={item.role + item.company}
+                ref={setItemRef(index)}
                 className="exp-stagger relative pl-10"
-                style={{ animationDelay: `${index * 200}ms` }}
               >
                 <div className="absolute left-0 top-1.5 w-1.75 h-1.75 rounded-full bg-white/20" />
 
@@ -45,7 +95,7 @@ export default function Experience() {
                 </ul>
               </div>
             ))}
-            <div className="exp-stagger relative pl-10 opacity-40">
+            <div ref={setItemRef(experience.length)} className="exp-stagger relative pl-10 opacity-40">
               <div className="absolute left-0 top-1.5 w-1.75 h-1.75 rounded-full border border-white/30 bg-transparent" />
               <span className="text-[#fffff0] text-sm font-mono tracking-wide">
                 Coming Soon
@@ -60,16 +110,6 @@ export default function Experience() {
           </div>
         </div>
       </div>
-      <style>{`
-        .exp-stagger {
-          opacity: 0;
-          animation: expFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-        @keyframes expFade {
-          from { opacity: 0; transform: translateY(24px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-      `}</style>
     </section>
   );
 }

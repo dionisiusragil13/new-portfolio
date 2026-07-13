@@ -29,7 +29,7 @@ export default function HomeSection() {
     });
   });
   return (
-    <section className="min-h-screen">
+    <section id="hero-section" className="min-h-screen">
       <div className="fixed inset-0 -z-10">
         <Canvas shadows="soft">
           <Scene />

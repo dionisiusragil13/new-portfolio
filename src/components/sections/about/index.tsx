@@ -1,19 +1,105 @@
 "use client";
+import { useRef } from "react";
 import { Canvas } from "@react-three/fiber";
 import Scene from "./scene";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin([useGSAP, ScrollTrigger]);
 
 export default function About() {
+  useGSAP(() => {
+    const tl = gsap.timeline();
+
+    tl;
+  });
+
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    () => {
+      if (!contentRef.current) return;
+
+      const heading = contentRef.current.querySelector(".about-heading");
+      const paragraphs = contentRef.current.querySelectorAll("p");
+      const socials = contentRef.current.querySelector(".about-socials");
+
+      if (heading) {
+        gsap.fromTo(
+          heading,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: heading,
+              start: "top 80%",
+              toggleActions: "play none none none",
+              once: false,
+            },
+          },
+        );
+      }
+
+      paragraphs.forEach((p, i) => {
+        gsap.fromTo(
+          p,
+          { opacity: 0, y: 24 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: p,
+              start: "top 80%",
+              toggleActions: "play none none none",
+              once: false,
+            },
+            delay: i * 0.1,
+          },
+        );
+      });
+
+      if (socials) {
+        gsap.fromTo(
+          socials,
+          { opacity: 0, y: 20 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: socials,
+              start: "top 80%",
+              toggleActions: "play none none none",
+              once: false,
+            },
+          },
+        );
+      }
+    },
+    { scope: contentRef },
+  );
+
   return (
-    <section className="relative min-h-screen">
+    <section id="about-section" className="relative min-h-screen">
       <div className="hero-scene pointer-events-none absolute inset-0">
         <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
           <Scene />
         </Canvas>
       </div>
-      <div className="about-description relative z-10 flex min-h-screen flex-col items-center justify-center px-4">
+      <div
+        ref={contentRef}
+        className="about-description relative z-10 flex min-h-screen flex-col items-center justify-center px-4"
+      >
         <div className="flex flex-col items-center gap-12 w-full max-w-2xl mx-auto">
           <div className="text-center">
-            <h1 className="uppercase font-black text-6xl sm:text-7xl text-[#fffff0]">
+            <h1 className="about-heading uppercase font-black text-6xl sm:text-7xl text-[#fffff0]">
               About Me
             </h1>
           </div>
@@ -38,7 +124,7 @@ export default function About() {
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-6">
+          <div className="about-socials flex flex-wrap items-center justify-center gap-6">
             <div className="flex gap-4">
               <a
                 href="https://github.com/dionisiusragil13"
@@ -83,7 +169,6 @@ export default function About() {
                 <img src="gmail.svg" alt="Gmail" className="w-6 h-6" />
               </a>
             </div>
-            
           </div>
         </div>
       </div>
