@@ -6,6 +6,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { SplitText } from "gsap/SplitText";
 import { ArrowDownToLine } from "lucide-react";
+import Preloader from "@/components/Preloader";
 
 gsap.registerPlugin([useGSAP, SplitText]);
 
@@ -30,6 +31,7 @@ export default function HomeSection() {
   });
   return (
     <section id="hero-section" className="min-h-screen">
+      <Preloader />
       <div className="fixed inset-0 -z-10">
         <Canvas shadows="soft">
           <Scene />
