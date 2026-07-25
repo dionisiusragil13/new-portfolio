@@ -60,7 +60,7 @@ export const projects: Project[] = [
     year: "2025",
     description: "Website to classifify a hearbal leaf with customized model",
     stack: ["Python", "Flask", "React", "tensorflow"],
-    image: "leafsense.png",
+    image: "/leafsense.png",
     liveUrl: "",
     repoUrl: "https://github.com/dionisiusragil13/herbal-leaf-classifier",
   },

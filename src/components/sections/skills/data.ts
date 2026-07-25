@@ -20,7 +20,7 @@ export const skills: Skill[] = [
   { name: "CSS", iconUrl: "css_old.svg", category: "Frontend" },
   { name: "Tailwind CSS", iconUrl: "tailwindcss.svg", category: "Frontend" },
   { name: "React-router", iconUrl: "reactrouter.svg", category: "Frontend" },
-  { name: "GSAP", iconUrl: "gsap.png", category: "Frontend" },
+  { name: "GSAP", iconUrl: "/gsap.png", category: "Frontend" },
 
   // Backend
   { name: "Node.js", iconUrl: "nodejs.svg", category: "Backend" },
