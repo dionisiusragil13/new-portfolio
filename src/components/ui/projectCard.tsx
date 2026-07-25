@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import type { Project } from "@/components/sections/projects/data";
 
@@ -21,9 +22,11 @@ export default function ProjectCard({ project }: ProjectCardProps) {
     >
       {/* Image */}
       <div className="relative aspect-4/3 w-full overflow-hidden bg-[#0E0E10]">
-        <img
+        <Image
           src={image}
           alt={`${title} preview`}
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
           className="h-full w-full object-cover opacity-90 transition-transform duration-700 ease-out group-hover:scale-[1.04] group-hover:opacity-100"
         />
         <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-[#0E0E10] via-transparent to-transparent opacity-60" />

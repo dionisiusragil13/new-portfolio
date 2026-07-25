@@ -1,6 +1,7 @@
 "use client";
 
 import { forwardRef, useRef } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -24,12 +25,11 @@ const SkillBox = forwardRef<HTMLDivElement, SkillBoxProps>(
                    will-change-transform"
       >
         <div className="flex flex-row items-center gap-3">
-          <img
+          <Image
             src={iconUrl}
             alt={name}
             width={24}
             height={24}
-            loading="lazy"
             className="w-6 h-6 object-contain"
           />
           <span className="text-[#000000] text-sm font-medium whitespace-nowrap">

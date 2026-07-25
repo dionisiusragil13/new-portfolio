@@ -1,10 +1,12 @@
 "use client";
+
 import { useRef } from "react";
 import { Canvas } from "@react-three/fiber";
 import Scene from "./scene";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
 
 gsap.registerPlugin([useGSAP, ScrollTrigger]);
 
@@ -133,9 +135,11 @@ export default function About() {
                 className="opacity-70 hover:opacity-100 transition-opacity"
                 aria-label="GitHub"
               >
-                <img
-                  src="github_light.svg"
+                <Image
+                  src="/github_light.svg"
                   alt="GitHub"
+                  width={24}
+                  height={24}
                   className="w-6 h-6 invert"
                 />
               </a>
@@ -146,7 +150,13 @@ export default function About() {
                 className="opacity-70 hover:opacity-100 transition-opacity"
                 aria-label="LinkedIn"
               >
-                <img src="linkedin.svg" alt="LinkedIn" className="w-6 h-6" />
+                <Image
+                  src="/linkedin.svg"
+                  alt="LinkedIn"
+                  width={24}
+                  height={24}
+                  className="w-6 h-6"
+                />
               </a>
               <a
                 href="https://www.instagram.com/ragildinho_?igsh=Yzh5c3pjaWJ4bW0y"
@@ -155,9 +165,11 @@ export default function About() {
                 className="opacity-70 hover:opacity-100 transition-opacity"
                 aria-label="Instagram"
               >
-                <img
-                  src="instagram-icon.svg"
+                <Image
+                  src="/instagram-icon.svg"
                   alt="Instagram"
+                  width={24}
+                  height={24}
                   className="w-6 h-6"
                 />
               </a>
@@ -166,7 +178,13 @@ export default function About() {
                 className="opacity-70 hover:opacity-100 transition-opacity"
                 aria-label="Email"
               >
-                <img src="gmail.svg" alt="Gmail" className="w-6 h-6" />
+                <Image
+                  src="/gmail.svg"
+                  alt="Gmail"
+                  width={24}
+                  height={24}
+                  className="w-6 h-6"
+                />
               </a>
             </div>
           </div>
