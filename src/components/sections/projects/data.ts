@@ -64,4 +64,13 @@ export const projects: Project[] = [
     liveUrl: "",
     repoUrl: "https://github.com/dionisiusragil13/herbal-leaf-classifier",
   },
+  {
+    title: "ReadAgain",
+    year: "2026",
+    description: "Website to read random paper 1 day 1 paper",
+    stack: ["Typescript", "next.js", "MongoDB", "RestAPI"],
+    image: "/image.png",
+    liveUrl: "https://read-again-iota.vercel.app/",
+    repoUrl: "https://github.com/dionisiusragil13/Read-Again",
+  },
 ];
