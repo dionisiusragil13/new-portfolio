@@ -16,4 +16,16 @@ export const experience: ExperienceItem[] = [
       "Collaborated in a multidisciplinary capstone project using Agile methodologies, contributing to the design and integration of a production-ready machine learning model. ",
     ],
   },
+  {
+    role: "Software Engineer",
+    company: "Kementerian Ketenagakerjaan RI / Ministry of Manpower",
+    period: "2026-present",
+    achievements: [
+      "Drafting plans and analyzing issues related to information system and technology governance",
+      "formulating concepts for information system applications",
+      "developing application systems to meet user needs",
+      "developing and upgrading application systems and databases",
+      "enhancing database performance; and facilitating the processing and presentation of data regarding labor inspection and Occupational Safety and Health (OSH) services",
+    ],
+  },
 ];
